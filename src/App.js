@@ -27,7 +27,7 @@ const App = () => {
           <Confirmation orders={orders} />
         </Route>
         <Route path='/order'>
-          <Order order={orders} setOrder={setOrders} />
+          <Order orders={orders} setOrders={setOrders} />
         </Route>
         <Route path='/'>
           <Home />

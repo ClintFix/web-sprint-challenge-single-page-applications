@@ -87,14 +87,17 @@ export default function Order(props) {
             instructions: formValues.instructions,
             quantity: formValues.quantity,
         }
-        setOrders([newOrder, ...orders])
+        setOrders({newOrder, ...orders})
     }
 
 
     // change disabled button with validation
     // useEffect to check formSchema when formValues changes
     useEffect(() => {
-
+        formSchema.isValid(formValues)
+            .then(valid => {
+                setDisabled(!valid)
+            })
     }, [formValues])
 
     //get current URL
