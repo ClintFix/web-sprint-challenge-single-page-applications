@@ -1,5 +1,6 @@
 import React, { useState }from "react";
 import { Route, Link, Switch } from 'react-router-dom'
+import "./App.css";
 
 // TO-DO: import components used for the different routes
 // Home
@@ -17,7 +18,7 @@ const App = () => {
   return (
     <>
       <div className='NavBar'>
-          <div>Lambda Eats</div>
+          <h2>The Best Ever Pizza Restaurant!</h2>
           <Link to='/'>Home</Link>
       </div>
 
