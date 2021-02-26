@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react' 
 import { Link, useRouteMatch } from 'react-router-dom'
+import formSchema from '../validation/formSchema'
+import * as yup from 'yup'
 
 // initial form values
 const initialFormValues = {
@@ -17,7 +19,10 @@ const initialDisabled = true;
 //initialFormErrors
 const initialFormErrors = {
   name: '', 
-  toppings: '',  
+  size: '',
+  sauce: '',
+  toppings: '',
+  quantity: '',
 }
 
 const toppingChoices = ['Pepperoni', 'Sausage', 'Canadian Bacon', 'Spicy Italian Sausage', 'Grilled Chicken', 'Onion', 'Green Pepper', 'Diced Tomato', 'Black Olives', 'Roasted Garlic', 'Artichoke Hearts', 'Three Cheese', 'Pineapple', 'Extra Cheese']
@@ -41,13 +46,31 @@ export default function Order(props) {
     const onChange = evt => {
         const { name, value, type, checked } = evt.target //make sure works with dropdowns, radio buttons, checkboxes
         // const valueToUse = type === 'checkbox' ? checked : value;
+
         if (type === 'checkbox') {
-            setFormValues({...formValues, 'toppings': [...formValues.toppings, name]})
-        } else {
+            yup.reach(formSchema, 'toppings')
+                .validate(formValues.toppings)
+                .then(() => {
+                    setFormErrors({...formErrors, 'toppings': ''})
+                })
+                .catch(err => {
+                    setFormErrors({...formErrors, 'toppings': err.errors[0]})
+                })
+
+                setFormValues({...formValues, 'toppings': [...formValues.toppings, name]})  
+            }
+        else {
+            yup.reach(formSchema, name)
+                .validate(value)
+                .then(() => {
+                     setFormErrors({...formErrors, [name]: ''})
+                 })
+                 .catch(err => {
+                    setFormErrors({...formErrors, [name]: err.errors[0]})
+                })
+
             setFormValues({...formValues, [name]: value})
         }
-        // !!!!! add validation !!!!!
-        
     }
 
     // onSubmit //
