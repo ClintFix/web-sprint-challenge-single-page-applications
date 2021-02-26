@@ -150,7 +150,11 @@ export default function Order(props) {
                         value={formValues.instructions}
                     />
                 </div>
-
+                <div>
+                    <label>Quantity
+                        <input type='number' name='quantity' value={formValues.quantity} onChange={onChange} />
+                    </label>
+                </div>
             </form>
         </div>
     )
