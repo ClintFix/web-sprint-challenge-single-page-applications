@@ -21,7 +21,7 @@ const initialFormErrors = {
 }
 
 export default function Order(props) {
-    const { order, setOrder } = props; // array of orders
+    const { orders, setOrders } = props; // array of orders
 
     // STATE to be managed by Order: //
     // formValues
@@ -49,16 +49,59 @@ export default function Order(props) {
     // prevent default reload behavior
     // make new order object
     // add new order to order state
+    const onSubmit = evt => {
+        evt.preventDefault();
+        const newOrder = {
+            name: formValues.name.trim(),
+            size: formValues.size,
+            sauce: formValues.sauce,
+            toppings: formValues.toppings, //should be array of sauces
+            instructions: formValues.instructions,
+            quantity: formValues.quantity,
+        }
+        setOrders([newOrder, ...orders])
+    }
+
 
     // change disabled button with validation
     // useEffect to check formSchema when formValues changes
+    useEffect(() => {
+
+    }, [formValues])
 
     //get current URL
     const {url} = useRouteMatch()
 
     return (
         <div className = 'order-form'>
+            <h1>Build Your Own Pizza</h1>
+            <form onSubmit={onSubmit}> 
+                <div className = 'order-section'>
+                    <h3>Name</h3>
+                    <div className='required'>Required</div>
+                </div>
+                <div>
+                    <input
+                        name='name'
+                        type='text'
+                        onChange={onChange}
+                        value={formValues.name}
+                    />
+                </div>
+                <div className = 'order-section'>
+                    <h3>Choice of Size</h3>
+                    <div className='required'>Required</div>
+                </div>
+                <div>
+                    <select name='size' value={formValues.size} onChange={onChange}>
+                        <option value=''>Select a pizza size</option>
+                        <option value='12'>12"</option>
+                        <option value='16'>16"</option>
+                        <option value='18'>18"</option>
+                    </select>
+                </div>
 
+            </form>
         </div>
     )
 }
