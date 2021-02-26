@@ -23,17 +23,20 @@ const App = () => {
       </div>
 
       {/* Build a switch with a route to Home, Order, Confirmation */}
-      <Switch>
-        <Route path='/confirmation'>
-          <Confirmation orders={orders} />
-        </Route>
-        <Route path='/order'>
-          <Order orders={orders} setOrders={setOrders} />
-        </Route>
-        <Route path='/'>
-          <Home />
-        </Route>
-      </Switch>
+      <div className='route-body'>
+        <Switch>
+          <Route path='/confirmation'>
+            <Confirmation orders={orders} />
+          </Route>
+          <Route path='/order'>
+            <Order orders={orders} setOrders={setOrders} />
+          </Route>
+          <Route path='/'>
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+
     </>
   );
 };

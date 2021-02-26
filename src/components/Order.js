@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 import formSchema from '../validation/formSchema'
 import * as yup from 'yup'
+import "../App.css"
 
 // initial form values
 const initialFormValues = {
@@ -118,7 +119,7 @@ export default function Order(props) {
                     <h3>Name</h3>
                     <div className='required'>Required</div>
                 </div>
-                <div>
+                <div className='input-selection'>
                     <input
                         name='name'
                         type='text'
@@ -131,7 +132,7 @@ export default function Order(props) {
                     <h3>Choose Your Pizza Size</h3>
                     <div className='required'>Required</div>
                 </div>
-                <div>
+                <div className='input-selection'>
                     <select name='size' value={formValues.size} onChange={onChange}>
                         <option value=''>Select a pizza size</option>
                         <option value='12'>12"</option>
@@ -144,7 +145,7 @@ export default function Order(props) {
                     <h3>Choose Your Sauce</h3>
                     <div className='required'>Required</div>
                 </div>
-                <div>
+                <div className='input-selection'>
                     <label className='form-label'> 
                         <input name='sauce' type='radio' value='Original Red' onChange={onChange} checked={formValues.sauce === 'Original Red'} />
                         Original Red
@@ -183,7 +184,7 @@ export default function Order(props) {
                 <div className = 'order-section'>
                     <h3>Special Instructions</h3>
                 </div>
-                <div>
+                <div className='input-selection'>
                     <input
                         name='instructions'
                         type='text'
@@ -191,8 +192,8 @@ export default function Order(props) {
                         value={formValues.instructions}
                     />
                 </div>
-                <div>
-                    <label>Quantity
+                <div className = 'quantity'>
+                    <label>Quantity: 
                         <input type='number' name='quantity' value={formValues.quantity} onChange={onChange} />
                     </label>
                     <div className='error'>{formErrors.quantity}</div>

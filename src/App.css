@@ -52,3 +52,82 @@
   box-shadow: none;
 }
 
+.route-body {
+  display: flex;
+  justify-content: center;
+}
+.order-form {
+  width: 50%;
+  box-shadow: 2px 2px 2px 2px darkgray;
+  border-radius: 5px;
+  padding: 30px 60px 60px;
+}
+
+.order-section {
+  background-color: rgb(238, 238, 238);
+  padding: 10px 20px 10px;
+}
+
+.order-section h3 {
+  margin: 0;
+}
+
+.required {
+  font-size: .7rem;
+  font-style: italic;
+  color: gray;
+}
+
+.input-selection {
+  padding: 20px 20px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.toppings-checkboxes {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  flex-wrap: wrap;
+  padding: 20px 20px 20px;
+  height: 200px;
+}
+
+.toppings-checkboxes label {
+  padding: 10px 0px;
+  padding-right: 15px;
+}
+
+.error {
+  font-size: .8rem;
+  font-style: italic;
+  color: maroon;
+  padding: 10px 10px 10px;
+}
+
+.quantity {
+  background-color: rgb(238, 238, 238);
+  padding: 20px 20px 15px;
+  height: 23px;
+}
+.quantity label {
+  font-weight: bold;
+}
+
+.quantity input {
+  margin-left: 15px;
+  width: 40px;
+}
+
+.order-form button {
+  width: 100%;
+  margin: 20px 0px;
+  height: 40px;
+}
+
+.order-form button:enabled {
+  color: white;
+  background-color: rgb(199, 0, 0);
+  font-weight: bold;
+  cursor: pointer;
+}
