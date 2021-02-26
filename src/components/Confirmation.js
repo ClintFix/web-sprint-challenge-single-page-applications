@@ -4,11 +4,12 @@ export default function Confirmation(props) {
     const { orders } = props; // array of orders
 
     return (
-        <>
+        <div className = 'order-confirmation'>
             <div>
                 <h1>Congats! Your Pizza is on it's way!</h1>
             </div>
-            <div className = 'order-confirmation'>
+            <div className='order-details'>
+                <h3>Order Details:</h3>
                 {
                     orders.map(order => {
                         return (
@@ -33,6 +34,6 @@ export default function Confirmation(props) {
                     })
                 }
             </div>
-        </>
+        </div>
     )
 }
