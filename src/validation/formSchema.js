@@ -11,7 +11,7 @@ const formSchema = yup.object().shape({
         .required('Please choose a sauce for your Pizza'),
     toppings: yup.array()
         .max(10,'We can only fit a max of 10 toppings on your Pizza, Sorry.')
-        .min(3, 'At least 3 toppings are required').required(),
+        .min(3, 'More than 3 toppings are required'),
     quantity: yup.number()
         .min(1, 'What is the point of ordering 0 Pizzas?'),
 })

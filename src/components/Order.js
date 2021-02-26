@@ -87,7 +87,7 @@ export default function Order(props) {
             instructions: formValues.instructions,
             quantity: formValues.quantity,
         }
-        setOrders({newOrder, ...orders})
+        setOrders([newOrder, ...orders])
     }
 
 
@@ -118,6 +118,7 @@ export default function Order(props) {
                         onChange={onChange}
                         value={formValues.name}
                     />
+                    <div className='error'>{formErrors.name}</div>
                 </div>
                 <div className = 'order-section'>
                     <h3>Choose Your Pizza Size</h3>
@@ -130,24 +131,30 @@ export default function Order(props) {
                         <option value='16'>16"</option>
                         <option value='18'>18"</option>
                     </select>
+                    <div className='error'>{formErrors.size}</div>
                 </div>
                 <div className = 'order-section'>
                     <h3>Choose Your Sauce</h3>
                     <div className='required'>Required</div>
                 </div>
                 <div>
-                    <label className='form-label'> Original Red
+                    <label className='form-label'> 
                         <input name='sauce' type='radio' value='Original Red' onChange={onChange} checked={formValues.sauce === 'Original Red'} />
-                    </label>
-                    <label className='form-label'> Garlic Ranch
+                        Original Red
+                    </label> 
+                    <label className='form-label'> 
                         <input name='sauce' type='radio' value='Garlic Ranch' onChange={onChange} checked={formValues.sauce === 'Garlic Ranch'} />
-                    </label>
-                    <label className='form-label'> BBQ Sauce
+                        Garlic Ranch
+                    </label> 
+                    <label className='form-label'>
                         <input name='sauce' type='radio' value='BBQ Sauce' onChange={onChange} checked={formValues.sauce === 'BBQ Sauce'} />
+                        BBQ Sauce
                     </label>
-                    <label className='form-label'> Spinach Alfredo
+                    <label className='form-label'> 
                         <input name='sauce' type='radio' value='Spinach Alfredo' onChange={onChange} checked={formValues.sauce === 'Spinach Alfredo'} />
+                        Spinach Alfredo
                     </label>
+                    <div className='error'>{formErrors.sauce}</div>
                 </div>
                 <div className = 'order-section'>
                     <h3>Choose Your Toppings</h3>
@@ -164,6 +171,7 @@ export default function Order(props) {
                             )
                         })
                     }
+                    <div className='error'>{formErrors.toppings}</div>
                 </div>
                 <div className = 'order-section'>
                     <h3>Special Instructions</h3>
@@ -180,6 +188,7 @@ export default function Order(props) {
                     <label>Quantity
                         <input type='number' name='quantity' value={formValues.quantity} onChange={onChange} />
                     </label>
+                    <div className='error'>{formErrors.quantity}</div>
                 </div>
                 <button disabled={disabled}>Submit Order</button>
             </form>
