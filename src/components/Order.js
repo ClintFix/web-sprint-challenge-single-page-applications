@@ -20,6 +20,8 @@ const initialFormErrors = {
   toppings: '',  
 }
 
+const toppingChoices = ['Pepperoni', 'Sausage', 'Canadian Bacon', 'Spicy Italian Sausage', 'Grilled Chicken', 'Onion', 'Green Pepper', 'Diced Tomato', 'Black Olives', 'Roasted Garlic', 'Artichoke Hearts', 'Three Cheese', 'Pineapple', 'Extra Cheese']
+
 export default function Order(props) {
     const { orders, setOrders } = props; // array of orders
 
@@ -38,11 +40,14 @@ export default function Order(props) {
     // updates formValues state
     const onChange = evt => {
         const { name, value, type, checked } = evt.target //make sure works with dropdowns, radio buttons, checkboxes
-        const valueToUse = type === 'checkbox' ? checked : value;
+        // const valueToUse = type === 'checkbox' ? checked : value;
+        if (type === 'checkbox') {
+            setFormValues({...formValues, 'toppings': [...formValues.toppings, name]})
+        } else {
+            setFormValues({...formValues, [name]: value})
+        }
         // !!!!! add validation !!!!!
         
-        //update formValues
-        setFormValues({...formValues, [name]: valueToUse})
     }
 
     // onSubmit //
@@ -117,6 +122,22 @@ export default function Order(props) {
                     <label className='form-label'> Spinach Alfredo
                         <input name='sauce' type='radio' value='Spinach Alfredo' onChange={onChange} checked={formValues.sauce === 'Spinach Alfredo'} />
                     </label>
+                </div>
+                <div className = 'order-section'>
+                    <h3>Choose Your Toppings</h3>
+                    <div className='required'>Choose up to 10</div>
+                </div>
+                <div className = 'toppings-checkboxes'>
+                    {
+                        toppingChoices.map(topping => {
+                            return (
+                                <label>
+                                    <input type='checkbox' name={topping} onChange={onChange} checked={formValues.toppings.find(el => el === topping)} />
+                                    {topping}
+                                </label>
+                            )
+                        })
+                    }
                 </div>
 
             </form>
