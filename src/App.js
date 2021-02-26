@@ -23,7 +23,7 @@ const App = () => {
 
       {/* Build a switch with a route to Home, Order, Confirmation */}
       <Switch>
-        <Route path='/confirmation/:orderID'>
+        <Route path='/confirmation'>
           <Confirmation orders={orders} />
         </Route>
         <Route path='/order'>

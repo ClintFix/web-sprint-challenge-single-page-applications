@@ -14,6 +14,7 @@ const formSchema = yup.object().shape({
         .min(3, 'More than 3 toppings are required'),
     quantity: yup.number()
         .min(1, 'What is the point of ordering 0 Pizzas?'),
+    instructions: yup.string(),
 })
 
 export default formSchema;

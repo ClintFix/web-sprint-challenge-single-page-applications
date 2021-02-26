@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react' 
-import { Link, useRouteMatch } from 'react-router-dom'
+import { useHistory, useRouteMatch } from 'react-router-dom'
 import formSchema from '../validation/formSchema'
 import * as yup from 'yup'
 
@@ -29,7 +29,7 @@ const toppingChoices = ['Pepperoni', 'Sausage', 'Canadian Bacon', 'Spicy Italian
 
 export default function Order(props) {
     const { orders, setOrders } = props; // array of orders
-
+    
     // STATE to be managed by Order: //
     // formValues
     const [formValues, setFormValues] = useState(initialFormValues) //object
@@ -37,7 +37,8 @@ export default function Order(props) {
     const [disabled, setDisabled] = useState(initialDisabled) //boolean
     // formErrors - to add after form working
     const [formErrors, setFormErrors] = useState(initialFormErrors) //object
-
+    
+    const history = useHistory()
     // onChange //
     //function to handle on change event. must work for all form input types
     // checks for validation // add after form working
@@ -79,6 +80,11 @@ export default function Order(props) {
     // add new order to order state
     const onSubmit = evt => {
         evt.preventDefault();
+
+        const routeToConfirmation = () => {
+            history.push('/confirmation')
+        }
+
         const newOrder = {
             name: formValues.name.trim(),
             size: formValues.size,
@@ -88,6 +94,7 @@ export default function Order(props) {
             quantity: formValues.quantity,
         }
         setOrders([newOrder, ...orders])
+        routeToConfirmation()
     }
 
 
