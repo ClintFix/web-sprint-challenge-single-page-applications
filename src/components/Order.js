@@ -139,6 +139,17 @@ export default function Order(props) {
                         })
                     }
                 </div>
+                <div className = 'order-section'>
+                    <h3>Special Instructions</h3>
+                </div>
+                <div>
+                    <input
+                        name='instructions'
+                        type='text'
+                        onChange={onChange}
+                        value={formValues.instructions}
+                    />
+                </div>
 
             </form>
         </div>
