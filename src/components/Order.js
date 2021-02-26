@@ -89,7 +89,7 @@ export default function Order(props) {
                     />
                 </div>
                 <div className = 'order-section'>
-                    <h3>Choice of Size</h3>
+                    <h3>Choose Your Pizza Size</h3>
                     <div className='required'>Required</div>
                 </div>
                 <div>
@@ -99,6 +99,24 @@ export default function Order(props) {
                         <option value='16'>16"</option>
                         <option value='18'>18"</option>
                     </select>
+                </div>
+                <div className = 'order-section'>
+                    <h3>Choose Your Sauce</h3>
+                    <div className='required'>Required</div>
+                </div>
+                <div>
+                    <label className='form-label'> Original Red
+                        <input name='sauce' type='radio' value='Original Red' onChange={onChange} checked={formValues.sauce === 'Original Red'} />
+                    </label>
+                    <label className='form-label'> Garlic Ranch
+                        <input name='sauce' type='radio' value='Garlic Ranch' onChange={onChange} checked={formValues.sauce === 'Garlic Ranch'} />
+                    </label>
+                    <label className='form-label'> BBQ Sauce
+                        <input name='sauce' type='radio' value='BBQ Sauce' onChange={onChange} checked={formValues.sauce === 'BBQ Sauce'} />
+                    </label>
+                    <label className='form-label'> Spinach Alfredo
+                        <input name='sauce' type='radio' value='Spinach Alfredo' onChange={onChange} checked={formValues.sauce === 'Spinach Alfredo'} />
+                    </label>
                 </div>
 
             </form>
