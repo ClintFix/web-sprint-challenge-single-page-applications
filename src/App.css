@@ -2,37 +2,144 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.NavBar {
+  display: flex;
+  height: 50px;
+  border-bottom: 1px solid black;
+  box-shadow: 0 2px 2px -1px darkred;
+  margin-bottom: 20px;
+  align-items: center;
+  padding: 5px 30px 5px;
+  justify-content: space-between;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.NavBar a {
+  text-decoration: none;
+  color: darkred;
+  font-weight: 500;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.hero {
+  width: 100%;
+  height: 350px;
+  border: 1px solid black;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+.hero button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: white;
+  color: maroon;
+  font-size: 18px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px black;
+}
+
+.hero button:hover {
+  box-shadow: none;
+}
+
+.route-body {
+  display: flex;
+  justify-content: center;
+}
+.order-form {
+  width: 50%;
+  box-shadow: 2px 2px 2px 2px darkgray;
+  border-radius: 5px;
+  padding: 30px 60px 60px;
+}
+
+.order-section {
+  background-color: rgb(238, 238, 238);
+  padding: 10px 20px 10px;
+}
+
+.order-section h3 {
+  margin: 0;
+}
+
+.required {
+  font-size: .7rem;
+  font-style: italic;
+  color: gray;
+}
+
+.input-selection {
+  padding: 20px 20px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.toppings-checkboxes {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  flex-wrap: wrap;
+  padding: 20px 20px 20px;
+  height: 200px;
+}
+
+.toppings-checkboxes label {
+  padding: 10px 0px;
+  padding-right: 15px;
+}
+
+.error {
+  font-size: .8rem;
+  font-style: italic;
+  color: maroon;
+  padding: 10px 10px 10px;
+}
+
+.quantity {
+  background-color: rgb(238, 238, 238);
+  padding: 20px 20px 15px;
+  height: 23px;
+}
+.quantity label {
+  font-weight: bold;
+}
+
+.quantity input {
+  margin-left: 15px;
+  width: 40px;
+}
+
+.order-form button {
+  width: 100%;
+  margin: 20px 0px;
+  height: 40px;
+}
+
+.order-form button:enabled {
+  color: white;
+  background-color: rgb(199, 0, 0);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.order-confirmation {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.order-details {
+  padding: 0px 20px 22px;
+  box-shadow: 0px 0px 4px darkgray;
+  border-radius: 4px;
 }
