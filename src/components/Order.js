@@ -155,6 +155,7 @@ export default function Order(props) {
                         <input type='number' name='quantity' value={formValues.quantity} onChange={onChange} />
                     </label>
                 </div>
+                <button disabled={disabled}>Submit Order</button>
             </form>
         </div>
     )
