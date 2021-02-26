@@ -10,6 +10,7 @@ import Order from './components/Order'
 import Confirmation from './components/Confirmation'
 
 const initialOrder = {
+  OrderID: null,
   Size: '',
   Sauce: '',
   Toppings: [],
@@ -34,7 +35,7 @@ const App = () => {
           <Confirmation order={order} />
         </Route>
         <Route path='/order'>
-          <Order order={order} />
+          <Order order={order} setOrder={setOrder} />
         </Route>
         <Route path='/'>
           <Home />
